@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import WorkoutForm from '@/components/WorkoutForm';
 import ProgressCharts from '@/components/ProgressCharts';
 import GoalsManager from '@/components/GoalsManager';
 import HealthTips from '@/components/HealthTips';
+import AdminDashboard from '@/components/AdminDashboard';
 import StatCard from '@/components/StatCard';
 import { Activity, Calendar, Flame, Goal } from 'lucide-react';
 
@@ -102,11 +102,12 @@ const Index = () => {
 
         {/* Main Content */}
         <Tabs defaultValue="dashboard" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8">
+          <TabsList className="grid w-full grid-cols-5 mb-8">
             <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
             <TabsTrigger value="goals">Goals</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
             <TabsTrigger value="tips">Tips & Suggestions</TabsTrigger>
+            <TabsTrigger value="admin">Admin</TabsTrigger>
           </TabsList>
 
           <TabsContent value="dashboard" className="space-y-6">
@@ -144,6 +145,10 @@ const Index = () => {
 
           <TabsContent value="tips">
             <HealthTips />
+          </TabsContent>
+
+          <TabsContent value="admin">
+            <AdminDashboard workouts={workouts} />
           </TabsContent>
         </Tabs>
       </div>
